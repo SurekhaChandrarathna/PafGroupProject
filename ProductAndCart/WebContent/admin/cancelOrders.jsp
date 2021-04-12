@@ -1,5 +1,8 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import = "Util.DBConnection"%>
+<%@page import = "java.sql.*"%>
+<%@include file="AdminProductHome.jsp" %>
 <html>
 <head>
 <link rel="stylesheet" href="../css/ordersReceived-style.css">
@@ -12,11 +15,7 @@
 <body>
 <div style="color: white; text-align: center; font-size: 30px;">Cancel Orders <i class='fas fa-window-close'></i></div>
 
-<h3 class="alert">Order Cancel Successfully!</h3>
 
-<h3 class="alert">Successfully Updated!</h3>
-
-<h3 class="alert">Some thing went wrong! Try Again!</h3>
 
 
 <table id="customers">
@@ -27,8 +26,7 @@
             <th scope="col"><i class="fa fa-inr"></i> Sub Total</th>
             <th>Address</th>
             <th>City</th>
-            <th>State</th>
-            <th>Country</th>
+          
             <th scope="col">Order Date</th>
              <th scope="col">Expected Delivery Date</th>
              <th scope="col">Payment Method</th>
@@ -36,23 +34,36 @@
               <th scope="col">Status</th>
           </tr>
         
-       
+                              <%
+	
+					try{
+						Connection con = DBConnection.getCon();
+						Statement st = con.createStatement();
+						ResultSet rs= st.executeQuery("select *from carts inner join products where carts.product_id=products.ID  and carts.order_date is not NULL and carts.status='Cancel'");
+					
+						while(rs.next())
+						{
+			   %>
+        
           <tr>
-          <td></td>
-            <td></td>
-            <td></td>
-            <td><i class="fa fa-inr"></i>  </td>
-                <td></td>
-               <td></td>
-                <td></td>
-                 <td></td>
-             <td></td>
-              <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-               </tr>
- 
+          			    <td><%=rs.getString(8) %></td>
+			            <td><%=rs.getString(15) %></td>
+			            <td><%=rs.getString(16) %></td>
+			            <td><i class="fa fa-inr"><%=rs.getString(5) %></i>  </td>
+			            <td><%=rs.getString(6) %></td>
+			            <td><%=rs.getString(7) %></td>
+			            <td><%=rs.getString(9) %></td>
+			            <td><%=rs.getString(10) %></td>
+			            <td><%=rs.getString(11) %></td>
+			            <td><%=rs.getString(12) %></td>
+			            <td><%=rs.getString(13) %></td>
+              </tr>
+         <%	}
+					}catch(Exception e){
+						System.out.println(e);
+					}
+					
+			%>
         </table>
       <br>
       <br>
