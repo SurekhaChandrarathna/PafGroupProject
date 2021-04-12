@@ -21,7 +21,7 @@
 		
 			Connection con = DBConnection.getCon();
 			Statement st = con.createStatement();
-			ResultSet rs= st.executeQuery("Select sum(total) from carts where email = '"+email+"' and status='bill'");
+			ResultSet rs= st.executeQuery("Select sum(total) from carts where email = '"+email+"' and status='bil'");
 			
 			while(rs.next()){
 				total = rs.getInt(1);
@@ -68,7 +68,7 @@
 						  
 						  <%
 						  
-							ResultSet rs1= st.executeQuery("select *from carts inner join products where carts.product_id=products.ID and carts.email='"+email+"' and carts.status='bill'");
+							ResultSet rs1= st.executeQuery("select *from carts inner join products where carts.product_id=products.ID and carts.email='"+email+"' and status='bill' ");
 						  	
 						  	while(rs1.next())
 						  	{	
@@ -79,15 +79,15 @@
 						  <tr>
 						    <td><%out.println(sno); %></td>
 						    <td><%=rs1.getString(15) %></td>
-						    <td><%=rs1.getString(3) %></td>
-						    <td><%=rs1.getString(6) %></td>
-						    <td><%=rs1.getString(10) %> </td>
-						     <td><%=rs1.getString(12) %></td>
+						    <td><%=rs1.getString(16) %></td>
+						    <td><%=rs1.getString(19) %></td>
+						    <td><%=rs1.getString(3) %> </td>
+						     <td><%=rs1.getString(5) %></td>
 						  </tr>
 						
 						<%} %>
 						</table>
-						<h3>Total: </h3>
+						<h3>Total:<%out.println(total); %> </h3>
 						<a href="continueShopping.jsp"><button class="button left-button">Continue Shopping</button></a>
 						<a onclick="window.print();"><button class="button right-button">Print</button></a>
 						<br><br><br><br>
