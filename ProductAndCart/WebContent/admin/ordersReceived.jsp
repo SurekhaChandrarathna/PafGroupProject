@@ -79,8 +79,8 @@
 			            <td><%=rs1.getString(11) %></td>
 			            <td><%=rs1.getString(12) %></td>
 			            <td><%=rs1.getString(13) %></td>
-			            <td><a href="">Cancel <i class='fas fa-window-close'></i></a></td>
-			            <td><a href="">Delivered <i class='fas fa-dolly'></i></i></a></td>
+			            <td><a href="cancelOrdersAction.jsp?ID=<%=rs1.getString(2)%>&email=<%=rs1.getString(1)%>">Cancel <i class='fas fa-window-close'></i></a></td>
+			            <td><a href="deliveredOrdersAction.jsp?ID=<%=rs1.getString(2)%>&email=<%=rs1.getString(1)%>">Delivered <i class='fas fa-dolly'></i></i></a></td>
 			            </tr>
 			         <%	}
 					}catch(Exception e){
