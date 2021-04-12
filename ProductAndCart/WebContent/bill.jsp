@@ -68,7 +68,7 @@
 						  
 						  <%
 						  
-							ResultSet rs1= st.executeQuery("select *from carts inner join products where carts.product_id=products.ID and carts.email='"+email+"' and status='bill' ");
+							ResultSet rs1= st.executeQuery("select *from carts inner join products where carts.product_id=products.ID and carts.email='"+email+"' and status='bil' ");
 						  	
 						  	while(rs1.next())
 						  	{	

@@ -18,10 +18,8 @@
 						
 						
 							  <li><a class="" href="myCart.jsp">My Cart</a></li><br><br>
-							  <li><a href="">My Orders</a></li><br><br>
-							  <li><a href="#contact">Change Details</a></li><br><br>
-							  <li><a href="#about">message Us</a></li><br><br>
-							  <li><a href="#about">About</a></li><br><br>
+							  <li><a href="myOrders.jsp">My Orders</a></li><br><br>
+							  <li><a href="messageUs.jsp">message Us</a></li><br><br>
 							  <li><a href="#contact">Logout</a></li>
 							  
 							  <% String email=session.getAttribute("email").toString(); %>

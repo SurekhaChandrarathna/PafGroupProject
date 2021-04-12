@@ -17,7 +17,7 @@
 						<ul><b>
 							  <li><a class="" href="AddProduct.jsp">Add New Product</a></li><br><br>
 							  <li><a href="AllProductEditProduct.jsp">All Products & Edit Products</a></li><br><br>
-							  <li><a href="#contact">Messages Received</a></li><br><br>
+							  <li><a href="messagesReceived.jsp">Messages Received</a></li><br><br>
 							  <li><a href="#about">Orders Received</a></li><br><br>
 							  <li><a href="#about">Cancel Orders</a></li><br><br>
 							  <li><a href="#contact">Delivered Orders</a></li>

@@ -9,7 +9,7 @@
 	String payment_method = request.getParameter("payment_method");
 	String transaction_id = "";
 	transaction_id=request.getParameter("transaction_id");
-	String status = "bill";
+	String status = "bil";
 	
 	try{
 		Connection con = DBConnection.getCon();
