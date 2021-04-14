@@ -18,9 +18,8 @@ public class DbUtill {
 	
 	
 	//Projects part-Shehani
-	public static List<Projects> getProjects(String Id)
+	public static List<Projects> getProjects(String email)
 	{
-		int convertedId = Integer.parseInt(Id);
 	
 		ArrayList<Projects> projects = new ArrayList<>();
 		
@@ -28,7 +27,7 @@ public class DbUtill {
 			
 			con = DBConnection.getConnection();
 			stat= con.createStatement();
-			String sql= "select * from projects where ProjectId='"+convertedId+"'";
+			String sql= "select * from projects where UserEmail='"+email+"'";
 			result = stat.executeQuery(sql);
 			
 			while(result.next())
@@ -40,8 +39,9 @@ public class DbUtill {
 				String Description= result.getString(5);
 				String Budget=result.getString(6);
 				String Category = result.getString(7);
+				String UserEmail= result.getString(8);
 				
-				Projects p = new Projects(ProjectId,ProjectCode,ProjectName,image,Description,Budget,Category);
+				Projects p = new Projects(ProjectId,ProjectCode,ProjectName,image,Description,Budget,Category,UserEmail);
 				projects.add(p);
 			}
 			

@@ -8,80 +8,56 @@ public class Projects {
 	private String ProjectCode;
 	private String ProjectName;
 	private Blob image;
-	private String Desccription;
+	private String Description;
 	private String Budget;
 	private String Category;
+	private String UserEmail;
 	
-	public Projects(int projectId, String projectCode, String projectName, Blob image, String desccription,
-			String budget, String category) {
+	public Projects(int ProjectId, String ProjectCode, String ProjectName, Blob image, String Description,
+			String Budget, String Category,String UserEmail) {
 		super();
-		ProjectId = projectId;
-		ProjectCode = projectCode;
-		ProjectName = projectName;
+		this.ProjectId = ProjectId;
+		this.ProjectCode = ProjectCode;
+		this.ProjectName = ProjectName;
 		this.image = image;
-		Desccription = desccription;
-		Budget = budget;
-		Category = category;
+		this.Description = Description;
+		this.Budget = Budget;
+		this.Category = Category;
+		this.UserEmail=UserEmail;
+		
 	}
 
 	public int getProjectId() {
 		return ProjectId;
 	}
 
-	public void setProjectId(int projectId) {
-		ProjectId = projectId;
-	}
-
 	public String getProjectCode() {
 		return ProjectCode;
-	}
-
-	public void setProjectCode(String projectCode) {
-		ProjectCode = projectCode;
 	}
 
 	public String getProjectName() {
 		return ProjectName;
 	}
 
-	public void setProjectName(String projectName) {
-		ProjectName = projectName;
-	}
-
 	public Blob getImage() {
 		return image;
 	}
 
-	public void setImage(Blob image) {
-		this.image = image;
-	}
-
-	public String getDesccription() {
-		return Desccription;
-	}
-
-	public void setDesccription(String desccription) {
-		Desccription = desccription;
+	public String getDescription() {
+		return Description;
 	}
 
 	public String getBudget() {
 		return Budget;
 	}
 
-	public void setBudget(String budget) {
-		Budget = budget;
-	}
-
 	public String getCategory() {
 		return Category;
 	}
 
-	public void setCategory(String category) {
-		Category = category;
+	public String getUserEmail() {
+		return UserEmail;
 	}
-	
-	
-	
 	
 	
 }

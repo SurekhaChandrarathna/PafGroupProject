@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 
 	<link rel="stylesheet" href="Home.css">
 	<!-- bootstrap -->
@@ -13,12 +13,12 @@
 			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
-		
+	
+	
 		
 	<!-- bootstrap -->
 <title>GadgetBadget</title>
 </head>
-
 <body>
 
 <!-- navigation bar -->
@@ -32,12 +32,7 @@
    			<div class="topnav" id="myTopnav">
 			  <a href="#" class="active">Home</a>
 			  <a href="#">Products</a>
-			  
-			  <form action = "GetProjects" method = "post">
-			  <button type = "submit" style="background-color:white" style="margin:0px " ><a>Projects</a></button>
-			  <input type="hidden" name="UserEmail" value="surekha@GB.com">
-			  </form>
-			  
+			  <a href="#">Projects</a>
 			  <a href="#">Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars"></i>
@@ -90,26 +85,49 @@
   
   <center><h3> Welcome to GadgetBadget </h3></center>
  <br><br>
-<!-- ============================================================================================================= -->
+
+	<table >
+				<tr>
+					<th>Subject Code</th>
+					<th>Subject </th>
+					<th>Register</th>
+					<th>Register</th>
+					
+					<th>Register</th>
+					<th>Register</th>
+					
+				</tr>
+				
+				<c:forEach var = "pro" items = "${Showprojects}">
+					<c:set var= "Project_Id" value = "${pro.Project_Id}"/>
+					<c:set var= "Project_Code" value = "${pro.Project_Code }"/>
+					<c:set var= "Project_Name" value = "${pro.Project_Name }"/>
+					<!--<c:set var= "image" value = "${project.image }"/>-->
+					<c:set var= "P_Description" value = "${pro.P_Description }"/>
+					<c:set var= "P_Budget" value = "${pro.P_Budget }"/>
+					<c:set var= "P_Category" value = "${pro.P_Category }"/>
+					
+					
+				
+				<tr>
+					<td>${pro.Project_Id}</td>
+					<td>${pro.Project_Code }</td>
+					<td>${pro.Project_Name }</td>
+					
+					<td>${pro.P_Description }</td>
+					<td>${pro.P_Budget }</td>
+					<td>${pro.P_Category }</td>
+					<td>
+					<a class="btn btn-success btn-medium"  href="#" role ="button">Register</a>
+					</td>
+				</tr>
+					
+				</c:forEach>
+	</table>
+	
+	
 
 
-
-
-
-<!-- ============================================================================================================= -->
-<br><br>
-<br>
-
-<center><div class="card text-center">
-  <div class="card-body">
-    <h5 class="card-title">Contact</h5>
-    <p class="card-text">0827738654</p>
-    <h4>Send us a message</h4>
-    <a href="#" class="btn btn-primary">Email Us</a>
-  </div>
-</div></center>
-<br><br>
-<br><br>
 
 <!-- Footer -->
 <footer class="page-footer font-small color-dark" style="background-color:#1f3a93">
@@ -240,6 +258,8 @@ function myFunction() {
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
 
 </body>
 </html>
