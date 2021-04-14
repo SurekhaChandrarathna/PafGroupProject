@@ -31,7 +31,7 @@
    			<br>
    			<div class="topnav" id="myTopnav">
 			  <a href="#" class="active">Home</a>
-			  <a href="#">Products</a>
+			  <a href="UserAddProductCart.jsp">Products</a>
 			  <a href="#">Projects</a>
 			  <a href="#">Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">

@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import = "Util.DBConnection"%>
 <%@page import = "java.sql.*"%>
-<%@include file="AdminProductHome.jsp" %>
+<%@include file="adminHeader.jsp" %>
 <html>
 <head>
 <link rel="stylesheet" href="../css/ordersReceived-style.css">
@@ -13,9 +13,9 @@
 </style>
 </head>
 <body>
-<div style="color: white; text-align: center; font-size: 30px;">Cancel Orders <i class='fas fa-window-close'></i></div>
+<div style="color: red; text-align: center; font-size: 30px;">Cancel Orders <i class='fas fa-window-close'></i></div>
 
-
+<br><br>
 
 
 <table id="customers">

@@ -38,21 +38,7 @@
 			<h1> something went wrong! </h1> 
 	
 		<%  } %>
-			<table>
-			<thead>
-			<tr>
-					<th scope="col">ID</th>
-					<th scope="col">Name</th>
-					<th scope="col">Category</th>
-					<th scope="col">Description</th>
-					<th scope="col">Quantity</th>
-					<th scope="col">Price</th>
-					<th scope="col">Add To Cart</th>
-					
-			</tr>
-			</thead>
 			
-			<tbody>
 			
 			<%
 				try{
@@ -65,24 +51,31 @@
 						
 				
 			%>
-			<tr>
-					<td><%=rs.getString(1) %></td>
-					<td><%=rs.getString(2) %></td>
-					<td><%=rs.getString(3) %></td>
-					<td><%=rs.getString(4) %></td>
-					<td><%=rs.getString(5) %></td>
-					<td><%=rs.getString(6) %></td>
-					<td> <a href="addToCartAction.jsp?ID=<%=rs.getString(1)%>">Add To Cart</a></td>
-					
-			</tr>
+
+
+			<div class="row">
+			  <div class="column">
+			    <div class="card">
+			     
+					  <h1>Product ID :- <%=rs.getString(1) %></h1>
+					  <h1>Item Name :- <%=rs.getString(2) %> </h1>
+					  <h1>Category  :- <%=rs.getString(3) %> </h1>
+					  <h1><%=rs.getString(4) %> </h1>
+					  <p class="price">Price:-  Rs.<%=rs.getString(6) %></p>
+					  
+					 <button class="button button2" href="addToCartAction.jsp?ID=<%=rs.getString(1) %>" ><b></b>Add to Cart</button>
+					  
+			    </div>
+			  </div>
+						
+			
 			<%}
 				}catch(Exception e){
 					System.out.println(e);
 				}
 			
 			%>		
-			</tbody>
-		</table>
+		
 		<br><br><br>
 		
 		

@@ -30,8 +30,8 @@
    			</a>
    			<br>
    			<div class="topnav" id="myTopnav">
-			  <a href="#" class="active">Home</a>
-			  <a href="#">Products</a>
+			  <a href="Home.jsp" class="active">Home</a>
+			  <a href="admin/AdminProductHome.jsp" >Products</a>
 			  <!--  <a href="#">Projects</a>-->
 			  <a href="#">Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">

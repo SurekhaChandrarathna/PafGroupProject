@@ -2,10 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import = "Util.DBConnection"%>
 <%@page import = "java.sql.*"%>
-<%@include file="AdminProductHome.jsp" %>
-<html>
+<%@include file="adminHeader2.jsp" %><html>
 <head>
-<link rel="stylesheet" href="../css/ordersReceived-style.css">
+
 <title>Home</title>
 <style>
 .th-style
@@ -13,12 +12,12 @@
 </style>
 </head>
 <body>
-<div style="color: white; text-align: center; font-size: 30px;">Delivered Orders <i class='fas fa-dolly'></i></div>
+<div style="color: black; text-align: center; font-size: 30px;">Delivered Orders <i class='fas fa-dolly'></i></div>
 
+<br><br><br>
+<center>
 
-
-
-<table id="customers">
+<table>
           <tr>
           <th>Mobile Number</th>
             <th scope="col">Product Name</th>
@@ -62,7 +61,7 @@
 					}
 					
 			%>
-        </table>
+        </table></center>
       <br>
       <br>
       <br>

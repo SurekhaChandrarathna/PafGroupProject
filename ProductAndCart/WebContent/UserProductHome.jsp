@@ -2,6 +2,8 @@
     pageEncoding="ISO-8859-1"%>
 <%@page import = "Util.DBConnection"%>
 <%@page import = "java.sql.*"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,4 +36,5 @@
 					    </form>
 <body>
 </body>
+
 </html>

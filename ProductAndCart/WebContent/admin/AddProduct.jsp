@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@page import = "Util.DBConnection"%>
 <%@page import = "java.sql.*"%>
-<%@include file="AdminProductHome.jsp" %>
+<%@include file="adminHeader.jsp" %>
 
 <!DOCTYPE html>
 <html>
@@ -16,7 +16,45 @@
 </head>
 <body>
 	
-					
+				<%
+		String msg = request.getParameter("msg");
+		if("done".equals(msg))
+		{
+	
+		%>
+		
+			  <div class="modal-content" >
+			    <div class="modal-header">
+			      <span class="close">&times;</span>
+			      <h2>Message</h2>
+			    </div>
+			    <div class="modal-body">
+			      <p><b>The Product Added To The System Successfully!</p>
+			    </div>
+			    
+			  </div>
+			
+		<%  } %>
+	
+		<%
+			if("notdone".equals(msg))
+			{
+
+		%>
+			
+			  <div class="modal-content" >
+			    <div class="modal-header">
+			      <span class="close">&times;</span>
+			      <h2>Message</h2>
+			    </div>
+			    <div class="modal-body">
+			      <p><b>Unsuccessfull!!</p>
+			    </div>
+			    
+			  </div>
+			
+	
+		<%  } %>	
 					    
 		<%--Get id and display the interface --%>
 		<%
@@ -43,43 +81,30 @@
 	
 		
 		<%--Create form to add products --%>		    
-		<form action ="addProductAction.jsp"  method= "post"><br>
-		<div class="mb-3">
-			<h3> Product ID :<%out.println(id); %></h3>	
-		
-			<input type ="hidden" name = "id" value="<%out.println(id); %>"><br><br>
-			Item Name <input type ="text" name = "name" placeholder = "Enter the item name.." required><br><br>
-			Item Category <input type ="text" name = "category" placeholder = "Enter the item category.." required><br><br>
-			Item Description <input type ="text" name = "description" placeholder = "Enter the item description.." required><br><br>
-			Item Price <input type ="text" name = "price" placeholder = "Enter the item price.." required><br><br>
-			Quantity <input type ="text" name = "quantity" placeholder = "Enter the quantity of the item.." required><br><br>
-			Item Activation <select  name = "active" required>
+
+		<center><div class="div1">
+		<form action ="addProductAction.jsp"  method= "post"><br><b>
+			<div class="card">
+ 				 <img src="dd.png"  style="width:50%">
+  					<div class="container">
+    		<h3><b><i>Product ID :-  <%out.println(id); %><i></b></h3> 
+  				</div>
+			</div>
+			<br><br>
+			Item Name<br> <input type ="text" name = "name" placeholder = "Enter the item name.." required><br><br>
+			Item Category<br> <input type ="text" name = "category" placeholder = "Enter the item category.." required><br><br>
+			Item Description<br> <input type ="text" name = "description" placeholder = "Enter the item description.." required><br><br>
+			Item Price<br> <input type ="text" name = "price" placeholder = "Enter the item price.." required><br><br>
+			Quantity<br> <input type ="text" name = "quantity" placeholder = "Enter the quantity of the item.." required><br><br>
+			Item Activation<br> <select  name = "active" required>
 							<option value = "">  </option>
 							<option value = "Yes"> Yes </option>
 							<option value = "No"> No </option>
 							</select><br><br>
-					
-		</div>	
-		<button><i>Add Details</i></button>	
+			<button class="button1"><span>Add Details </span></button>
+				    
 		</form>
-	
-		<%
-		String msg = request.getParameter("msg");
-		if("done".equals(msg))
-		{
-	
-		%>
-			<h1> Successfully Added the Product! </h1>
-	
-		<%  } %>
-	
-		<%
-			if("notdone".equals(msg))
-			{
-
-		%>
-			<h1> UnSuccessful! </h1>
-	
-		<%  } %>
+		</div></center>
+		
 </body>
 </html>

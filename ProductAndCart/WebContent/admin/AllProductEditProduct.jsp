@@ -1,12 +1,14 @@
+  
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import = "Util.DBConnection"%>
 <%@page import = "java.sql.*"%>
-<%@include file="AdminProductHome.jsp" %>
+<%@include file="adminHeader.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
+
 <title>Edit Product</title>
 </head>
 <body>
@@ -31,20 +33,20 @@
 	
 		<%  } %>
 	
-		<table>
-			<thead>
+		<center><table id="customers">
+			
 			<tr>
-					<th scope="col">ID</th>
-					<th scope="col">Name</th>
-					<th scope="col">Category</th>
-					<th scope="col">Description</th>
-					<th scope="col">Quantity</th>
-					<th scope="col">Price</th>
-					<th >Status</th>
-					<th scope="col">Edit Product Details</th>
+					<th scope="col"  class="bg-info">ID</th>
+					<th scope="col"  class="bg-info">Name</th>
+					<th scope="col"  class="bg-info">Category</th>
+					<th scope="col"  class="bg-info">Description</th>
+					<th scope="col"  class="bg-info">Quantity</th>
+					<th scope="col"  class="bg-info">Price</th>
+					<th  class="bg-info">Status</th>
+					<th scope="col"  class="bg-info">Edit Product Details</th>
 					
 			</tr>
-			</thead>
+			
 			
 			<tbody>
 			
@@ -60,14 +62,14 @@
 				
 			%>
 			<tr>
-					<td><%=rs.getString(1) %></td>
+					<b><td><%=rs.getString(1) %></td>
 					<td><%=rs.getString(2) %></td>
 					<td><%=rs.getString(3) %></td>
 					<td><%=rs.getString(4) %></td>
 					<td><%=rs.getString(5) %></td>
 					<td><%=rs.getString(6) %></td>
 					<td><%=rs.getString(7) %></td>
-					<td> <a href="editProduct.jsp?ID=<%=rs.getString(1) %>">Edit</a></td>
+					<td> <button class="button button2"  ><a href="editProduct.jsp?ID=<%=rs.getString(1) %>"><b>Edit</b></a></button></td>
 					
 			</tr>
 			<%}
@@ -77,8 +79,13 @@
 			
 			%>		
 			</tbody>
-		</table>
+		</table></center>
 		<br><br><br>
+<!-- bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- bootstrap -->
 	
 		
 </body>

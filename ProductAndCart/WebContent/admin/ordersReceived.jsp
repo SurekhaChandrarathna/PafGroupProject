@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import = "Util.DBConnection"%>
 <%@page import = "java.sql.*"%>
-<%@include file="AdminProductHome.jsp" %>
+<%@include file="adminHeader.jsp" %>
 <html>
 <head>
 <link rel="stylesheet" href="../css/ordersReceived-style.css">
@@ -12,7 +12,8 @@
 </style>
 </head>
 <body>
-<div style="color: white; text-align: center; font-size: 30px;">Orders Received <i class="fas fa-archive"></i></div>
+<div style="color: Black; text-align: center; font-size: 30px;">Orders Received <i class="fas fa-archive"></i></div>
+<br><br>
 <%
 				String msg=request.getParameter("msg");
 				
@@ -20,7 +21,16 @@
 				{
 				
 				%>
-					<h3 class="alert">Order Cancel Successfully!</h3>			
+				<div class="modal-content" >
+				    <div class="modal-header">
+				      <span class="close">&times;</span>
+				      <h2>Message</h2>
+				    </div>
+				    <div class="modal-body">
+				      <p><b>Order Canceled Successfully!</p>
+				    </div>
+				    
+				  </div>			
 				<%  } %>
 			
 				<%
@@ -28,7 +38,16 @@
 					{
 			
 				%>
-					<h3 class="alert">Successfully Updated!</h3>
+				 <div class="modal1-content" >
+				    <div class="modal1-header">
+				      <span class="close">&times;</span>
+				      <h2>Message</h2>
+				    </div>
+				    <div class="modal1-body">
+				      <p><b>Order Delivered Successfully!</p>
+				    </div>
+				    
+				  </div>
 		
 			<%  } %>
 				<%
@@ -80,7 +99,7 @@
 			            <td><%=rs1.getString(12) %></td>
 			            <td><%=rs1.getString(13) %></td>
 			            <td><a href="cancelOrdersAction.jsp?ID=<%=rs1.getString(2)%>&email=<%=rs1.getString(1)%>">Cancel <i class='fas fa-window-close'></i></a></td>
-			            <td><a href="deliveredOrdersAction.jsp?ID=<%=rs1.getString(2)%>&email=<%=rs1.getString(1)%>">Delivered <i class='fas fa-dolly'></i></i></a></td>
+			            <td><a href="deliveredOrdersAction.jsp?ID=<%=rs1.getString(2)%>&email=<%=rs1.getString(1)%>">Deliver <i class='fas fa-dolly'></i></i></a></td>
 			            </tr>
 			         <%	}
 					}catch(Exception e){
