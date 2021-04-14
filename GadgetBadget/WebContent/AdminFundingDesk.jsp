@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +33,7 @@
    			</a>
    			<br>
    			<div class="topnav" id="myTopnav">
-			  <a href="#">Home</a>
+			  <a href="AdminHome.jsp">Home</a>
 			  <a href="#">Products</a>
 			  <!--  <a href="#">Projects</a>-->
 			  <a href="#" class="active">Funding HelpDesk</a>

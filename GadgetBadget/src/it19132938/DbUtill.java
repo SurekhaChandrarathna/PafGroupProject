@@ -14,5 +14,8 @@ public class DbUtill {
 	private static Connection con = null;
 	private static Statement stat = null;
 	private static ResultSet result = null;
+	
+	
+	
 
 }
