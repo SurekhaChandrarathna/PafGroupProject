@@ -33,10 +33,10 @@
 			  <a href="#" class="active">Home</a>
 			  <a href="#">Products</a>
 			  
-			  <form action = "GetProjects" method = "post">
-			  <button type = "submit" style="background-color:white" style="margin:0px " ><a>Projects</a></button>
+			  
+			  <a href="MyProjects.jsp">Projects</a>
 			  <input type="hidden" name="UserEmail" value="surekha@GB.com">
-			  </form>
+			  
 			  
 			  <a href="#">Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">

@@ -1,6 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
+    
+    
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+
+
+<%
+String id = request.getParameter("userId");
+String driverName = "com.mysql.jdbc.Driver";
+String connectionUrl = "jdbc:mysql://localhost:3306/";
+String dbName = "gadgetbudget";
+String userId = "root";
+String password = "";
+
+
+try {
+Class.forName(driverName);
+} catch (ClassNotFoundException e) {
+e.printStackTrace();
+}
+
+Connection connection = null;
+Statement statement = null;
+ResultSet resultSet = null;
+%>    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +50,9 @@
 </head>
 <body>
 
+<input type="hidden" name="UserEmail" value="surekha@GB.com">
+<%String UserEmail=request.getParameter("UserEmail"); %>
+
 <!-- navigation bar -->
 
   <nav  class="navbar fixed-top navbar-white bg-white">
@@ -30,9 +62,9 @@
    			</a>
    			<br>
    			<div class="topnav" id="myTopnav">
-			  <a href="#" class="active">Home</a>
+			  <a href="CustomerResHome.jsp" >Home</a>
 			  <a href="#">Products</a>
-			  <a href="#">Projects</a>
+			  <a href="#" class="active">Projects</a>
 			  <a href="#">Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars"></i>
@@ -86,47 +118,91 @@
   <center><h3> Welcome to GadgetBadget </h3></center>
  <br><br>
 
-	<table >
-				<tr>
-					<th>Subject Code</th>
-					<th>Subject </th>
-					<th>Register</th>
-					<th>Register</th>
-					
-					<th>Register</th>
-					<th>Register</th>
-					
-				</tr>
-				
-				<c:forEach var = "pro" items = "${Showprojects}">
-					<c:set var= "Project_Id" value = "${pro.Project_Id}"/>
-					<c:set var= "Project_Code" value = "${pro.Project_Code }"/>
-					<c:set var= "Project_Name" value = "${pro.Project_Name }"/>
-					<!--<c:set var= "image" value = "${project.image }"/>-->
-					<c:set var= "P_Description" value = "${pro.P_Description }"/>
-					<c:set var= "P_Budget" value = "${pro.P_Budget }"/>
-					<c:set var= "P_Category" value = "${pro.P_Category }"/>
-					
-					
-				
-				<tr>
-					<td>${pro.Project_Id}</td>
-					<td>${pro.Project_Code }</td>
-					<td>${pro.Project_Name }</td>
-					
-					<td>${pro.P_Description }</td>
-					<td>${pro.P_Budget }</td>
-					<td>${pro.P_Category }</td>
-					<td>
-					<a class="btn btn-success btn-medium"  href="#" role ="button">Register</a>
-					</td>
-				</tr>
-					
-				</c:forEach>
-	</table>
-	
-	
 
+<!-- <table align="center" cellpadding="5" cellspacing="5" border="1">
+<tr>
+
+</tr>
+<tr bgcolor="#A52A2A">
+<td><b>Proid</b></td>
+<td><b>Procode</b></td>
+<td><b>NAme</b></td>
+<td><b>image</b></td>
+<td><b>description</b></td>
+<td><b>budget</b></td>
+<td><b>Category</b></td>
+</tr>
+ 
+ 
+<%
+try{ 
+connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
+statement=connection.createStatement();
+String sql ="SELECT * FROM projects ";
+
+resultSet = statement.executeQuery(sql);
+while(resultSet.next()){
+%>
+<tr bgcolor="#DEB887">
+
+<td><%=resultSet.getInt("ProjectId") %></td>
+<td><%=resultSet.getString("ProjectCode") %></td>
+<td><%=resultSet.getString("ProjectName") %></td>
+<td><img src="<%=resultSet.getBlob("Image") %>"/></td>
+<td><%=resultSet.getString("Description") %></td>
+<td><%=resultSet.getString("Budget") %></td>
+<td><%=resultSet.getString("Category") %></td>
+</tr>
+
+<% 
+}
+
+} catch (Exception e) {
+e.printStackTrace();
+}
+%>
+</table>-->
+
+
+<div class="card" style="width: 18rem;">
+<%
+try{ 
+connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
+statement=connection.createStatement();
+String sql ="SELECT * FROM projects ";
+
+resultSet = statement.executeQuery(sql);
+while(resultSet.next()){
+%>
+  <img class="card-img-top" src="<%=resultSet.getBlob("Image") %>" alt="Card image cap">
+  <div class="card-body">
+  	<h6><%=resultSet.getInt("ProjectId") %></h6>
+  	<h6><%=resultSet.getString("ProjectCode") %></h6>
+    <h5 class="card-title"><%=resultSet.getString("ProjectName") %></h5>
+    <p class="card-text"><%=resultSet.getString("Description") %></p>
+    <h6><%=resultSet.getString("Budget") %></h6>
+  	<h6><%=resultSet.getString("Category") %></h6>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div><br><br>
+  
+  <% 
+  }
+
+  } catch (Exception e) {
+  e.printStackTrace();
+  }
+  %>
+</div><br><br>
+	
+	
+<div class="card mb-3">
+  <img class="card-img-top" src="<%=resultSet.getBlob("Image") %>" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%=resultSet.getString("ProjectName") %></h5>
+    <p class="card-text"><%=resultSet.getString("Description") %></p>
+    <p class="card-text"><small class="text-muted"><%=resultSet.getString("Category") %></small></p>
+  </div>
+</div>
 
 
 <!-- Footer -->
