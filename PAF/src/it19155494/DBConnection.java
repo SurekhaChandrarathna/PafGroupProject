@@ -47,9 +47,9 @@ public class DBConnection {
 			ptStatement.setString(3, project.getPname());
 			ptStatement.setString(4, project.getCategory());
 			ptStatement.setString(5, project.getDescription());
-			ptStatement.setLong(6, project.getBudget());
+			ptStatement.setDouble(6, project.getBudget());
 			ptStatement.executeUpdate();
-		}catch (Exception e) {
+		}catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
@@ -67,7 +67,7 @@ public class DBConnection {
 			stmt.setString(3, project.getPname());
 			stmt.setString(4, project.getCategory());
 			stmt.setString(5, project.getDescription());
-			stmt.setLong(6, project.getBudget());
+			stmt.setDouble(6, project.getBudget());
 			
 			updated = stmt.executeUpdate() >0;
 		}
@@ -94,7 +94,7 @@ public class DBConnection {
 				String nameString = rs.getString("proj_name");
 				String cateString = rs.getString("proj_category");
 				String deString = rs.getString("proj_des");
-				long budget = Long.parseLong(rs.getString("proj_budget"));
+				double budget = Long.parseLong(rs.getString("proj_budget"));
 				
 				project = new Project(id, code, imgString, nameString, cateString, deString, budget);
 			}
@@ -123,7 +123,7 @@ public class DBConnection {
 				String pnameString = rs.getString("proj_name");
 				String pcateString = rs.getString("proj_category");
 				String pdeString = rs.getString("proj_des");
-				long pbudget = Long.parseLong(rs.getString("proj_budget"));
+				double pbudget = Double.parseDouble(rs.getString("proj_budget"));
 				
 				projects.add(new Project(id, pcode, pimgString, pnameString, pcateString, pdeString, pbudget));
 			}

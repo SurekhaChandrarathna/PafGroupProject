@@ -8,10 +8,10 @@ public class Project {
 	private String pname;
 	private String category;
 	private String description;
-	private long budget;
+	private double budget;
 	
 	
-	public Project(int id, String pcode, String img, String pname, String category, String description, long budget) {
+	public Project(int id, String pcode, String img, String pname, String category, String description, Double budget) {
 		super();
 		this.id = id;
 		this.pcode = pcode;
@@ -23,7 +23,7 @@ public class Project {
 	}
 	
 	
-	public Project(String pcode, String img, String pname, String category, String description, long budget) {
+	public Project(String pcode, String img, String pname, String category, String description, Double budget) {
 		super();
 		this.pcode = pcode;
 		this.img = img;
@@ -52,7 +52,7 @@ public class Project {
 	public String getDescription() {
 		return description;
 	}
-	public long getBudget() {
+	public Double getBudget() {
 		return budget;
 	}
 	public void setId(int id) {
@@ -73,7 +73,7 @@ public class Project {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public void setBudget(long budget) {
+	public void setBudget(Double budget) {
 		this.budget = budget;
 	}
 

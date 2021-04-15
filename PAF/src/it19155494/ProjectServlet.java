@@ -29,11 +29,11 @@ public class ProjectServlet extends HttpServlet {
     }
 
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/*protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		this.doGet(request, response);
-	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}*/
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String action = request.getServletPath();
 		
@@ -88,9 +88,9 @@ public class ProjectServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
-		default:
+		default :
 			try {
-				listUser(request, response);
+				listProjects(request, response);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -105,7 +105,7 @@ public class ProjectServlet extends HttpServlet {
 		}
 	}
 	
-	private void listUser(HttpServletRequest request, HttpServletResponse response)
+	private void listProjects(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		List<Project> listProject = dbConnection.selectAllProjects();
 		request.setAttribute("listProject", listProject);
@@ -121,12 +121,12 @@ public class ProjectServlet extends HttpServlet {
 	
 	private void insertProject(HttpServletRequest request, HttpServletResponse response)
 				throws SQLException, IOException{
-		String code = request.getParameter("p_id");
-		String imgString = request.getParameter("project_img");
-		String nameString = request.getParameter("proj_name");
-		String cateString = request.getParameter("proj_category");
-		String deString = request.getParameter("proj_des");
-		long budget = Long.parseLong(request.getParameter("proj_budget"));
+		String code = request.getParameter("code");
+		String imgString = request.getParameter("img");
+		String nameString = request.getParameter("name");
+		String cateString = request.getParameter("cate");
+		String deString = request.getParameter("des");
+		Double budget = Double.parseDouble(request.getParameter("bud"));
 		
 		Project project = new Project(code, imgString, nameString, cateString, deString, budget);
 		
@@ -148,12 +148,12 @@ public class ProjectServlet extends HttpServlet {
 	private void updateProject(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
-		String pcode = request.getParameter("p_id");
-		String pimg = request.getParameter("project_img");
-		String pname = request.getParameter("proj_name");
-		String pcate = request.getParameter("proj_category");
-		String pdeS = request.getParameter("proj_des");
-		long pbudge = Long.parseLong(request.getParameter("proj_budget"));
+		String pcode = request.getParameter("code");
+		String pimg = request.getParameter("img");
+		String pname = request.getParameter("name");
+		String pcate = request.getParameter("cate");
+		String pdeS = request.getParameter("des");
+		double pbudge = Double.parseDouble(request.getParameter("bud"));
 
 		Project pr = new Project(id, pcode, pimg, pname, pcate, pdeS, pbudge);
 		dbConnection.updateProjects(pr);
