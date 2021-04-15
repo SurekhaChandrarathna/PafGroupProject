@@ -115,13 +115,47 @@ ResultSet resultSet = null;
   <br><br><br>
   
   
-  <center><h3> Welcome to GadgetBadget </h3></center>
+  <center><h3> Welcome to GadgetBadget </h3>
+  		<h2>Hope to donate and help young researchers ??</h2>
+  	
+      <button type="button" class="btn btn-outline-primary" ><a href="#">*-Donate-*</a></button>
+
+  </center>
  <br><br>
 
 
+<center><h5>--------------Current Projects--------------</h5>
+<div class="card mb-3" style="width:800px">
+<%
+try{ 
+connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
+statement=connection.createStatement();
+String sql ="SELECT * FROM projects";
 
+resultSet = statement.executeQuery(sql);
+while(resultSet.next()){
+%>
+  <img class="card-img-top" src="<%=resultSet.getBlob("Image") %>" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Project Name : <%=resultSet.getString("ProjectName") %></h5>
+    <h6> Project Code: <%=resultSet.getString("ProjectCode") %></h6>
+    <h6><%=resultSet.getString("Budget") %></h6>
+    <p class="card-text">About Project:  <%=resultSet.getString("Description") %></p>
+    <p class="card-text"><small class="text-muted"> Category: <%=resultSet.getString("Category") %></small></p><br><br>
+    <p>************************************************************************************</p>
+    <p>************************************************************************************</p>
+  </div>
+  
+  <% 
+  }
 
-	
+  } catch (Exception e) {
+  e.printStackTrace();
+  }
+  %> 
+<br><br>
+</div>
+</center>	
 	
 
 
