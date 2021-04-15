@@ -118,14 +118,70 @@ ResultSet resultSet = null;
   <center><h3> Welcome to GadgetBadget </h3>
   		<h2>Hope to donate and help young researchers ??</h2>
   	
-      <button type="button" class="btn btn-outline-primary" ><a href="#">*-Donate-*</a></button>
-
-  </center>
+     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  		Donate->>
+	</button></center>
+	
+	<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Fill Your details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="DonationsServlet" method="post">
+		  <div class="form-group row">
+		    <label  class="col-sm-2 col-form-label">Name</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control"  placeholder="Enter your Name" name="name">
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control"  placeholder="Enter your Email" name="email">
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label class="col-sm-2 col-form-label">Amount</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control"  placeholder="Enter donating amount" name="amount">
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label  class="col-sm-2 col-form-label">Card Number</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control"  placeholder="Enter your card number" name="cardNumber">
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label  class="col-sm-2 col-form-label">CVC</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control"  placeholder="Enter your CVC" name="CVC">
+		    </div>
+		  </div>
+		  
+		  <input type="submit" name="submit" value="Donate">
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+	
+	
+	
  <br><br>
 
 
 <center><h5>--------------Current Projects--------------</h5>
-<div class="card mb-3" style="width:800px">
+<div class="card mb-3" style="width:850px">
 <%
 try{ 
 connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
@@ -142,8 +198,8 @@ while(resultSet.next()){
     <h6><%=resultSet.getString("Budget") %></h6>
     <p class="card-text">About Project:  <%=resultSet.getString("Description") %></p>
     <p class="card-text"><small class="text-muted"> Category: <%=resultSet.getString("Category") %></small></p><br><br>
-    <p>************************************************************************************</p>
-    <p>************************************************************************************</p>
+    <p>*****************************************************************************************************</p>
+    <p>*****************************************************************************************************</p>
   </div>
   
   <% 

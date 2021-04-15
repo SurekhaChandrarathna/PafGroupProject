@@ -18,7 +18,7 @@ public class DBConnection {
 			Class.forName("com.mysql.jdbc.Driver");
 			
 			con = DriverManager.getConnection(url, user, pass);
-			System.out.println("Database connection is successfull!!!");
+			//System.out.println("Database connection is successfull!!!");
 			
 		}
 		catch (Exception e) {
