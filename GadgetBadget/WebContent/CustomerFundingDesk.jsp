@@ -118,7 +118,7 @@ ResultSet resultSet = null;
   <center><h3> Welcome to GadgetBadget </h3>
   		<h2>Hope to donate and help young researchers ??</h2>
   	
-     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModalCenter">
   		Donate->>
 	</button></center>
 	
@@ -165,7 +165,7 @@ ResultSet resultSet = null;
 		    </div>
 		  </div>
 		  
-		  <input type="submit" name="submit" value="Donate">
+		  <input type="submit" name="submit" value="Donate"  class="btn btn-primary">
 		</form>
       </div>
       <div class="modal-footer">
