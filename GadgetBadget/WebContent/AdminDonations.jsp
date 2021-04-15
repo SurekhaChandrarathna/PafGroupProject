@@ -1,5 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
+    
+    
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+
+
+<%
+String id = request.getParameter("userId");
+String driverName = "com.mysql.jdbc.Driver";
+String connectionUrl = "jdbc:mysql://localhost:3306/";
+String dbName = "gadgetbudget";
+String userId = "root";
+String password = "";
+
+
+try {
+Class.forName(driverName);
+} catch (ClassNotFoundException e) {
+e.printStackTrace();
+}
+
+Connection connection = null;
+Statement statement = null;
+ResultSet resultSet = null;
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,10 +59,9 @@
    			</a>
    			<br>
    			<div class="topnav" id="myTopnav">
-			  <a href="#" class="active">Home</a>
+			  <a href="#" >Home</a>
 			  <a href="#">Products</a>
-			  <a href="AdminDonations.jsp">Donations</a>
-			  <!--  <a href="#">Projects</a>-->
+			  <a href="AdminDonations.jsp" class="active">Donations</a>
 			  <a href="AdminFundingDesk.jsp">Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars"></i>
@@ -59,12 +87,74 @@
   <br><br><br>
   
 
-<br><br>
-<br><br>
 <!-- ============================================================================================================= -->
+<center>
+	
+<%
+try{ 
+connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
+statement=connection.createStatement();
+String sql ="SELECT SUM(amount) FROM donations";
 
+resultSet = statement.executeQuery(sql);
+String CountRn="";
 
+while(resultSet.next()){
 
+  CountRn=resultSet.getString(1);
+ //out.println("Total Donations:" + CountRn);
+ %> 
+ <div class="card" style="width: 18rem;">
+ <h4 style="text-align:center">Total Donations</h4>
+  <h1 style="text-align:center">RS: <%=CountRn %></h1>
+</div>
+ 
+ <% 
+}
+
+} catch (Exception e) {
+e.printStackTrace();
+}
+%>
+</div>
+<br><br><br><br>
+<table class="table" style="width:850px">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name of doner</th>
+      <th scope="col">Email</th>
+      <th scope="col">Donated Amount</th>
+    </tr>
+    
+<%
+try{ 
+connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
+statement=connection.createStatement();
+String sql ="SELECT * FROM donations";
+
+resultSet = statement.executeQuery(sql);
+while(resultSet.next()){
+%>
+  </thead>
+  <tbody>
+    <tr>
+    <td><%=resultSet.getString("donationID") %></td>
+	<td><%=resultSet.getString("name") %></td>
+	<td><%=resultSet.getString("email") %></td>
+	<td><%=resultSet.getString("amount") %></td>
+    </tr>
+  </tbody>
+  
+<% 
+}
+
+} catch (Exception e) {
+e.printStackTrace();
+}
+%>
+</table></center>
+<br><br><br>
 
 
 

@@ -100,14 +100,7 @@
 <br><br>
 <br>
 
-<center><div class="card text-center">
-  <div class="card-body">
-    <h5 class="card-title">Contact</h5>
-    <p class="card-text">0827738654</p>
-    <h4>Send us a message</h4>
-    <a href="#" class="btn btn-primary">Email Us</a>
-  </div>
-</div></center>
+
 <br><br>
 <br><br>
 
