@@ -64,7 +64,8 @@
 <!-- ============================================================================================================= -->
 
 <div class="alert alert-primary" role="alert">
-  Thank you for your donation for the company.
+ <h3> Donation Successful !!<br></h3>
+  Thank you for your donation for the company.<br>
   Your donations will be funded to the researchers for their innovative projects.
   <a href="CustomerFundingDesk.jsp" class="alert-link">Go Back</a>
 </div>
