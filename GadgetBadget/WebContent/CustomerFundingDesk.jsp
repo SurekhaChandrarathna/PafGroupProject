@@ -64,8 +64,8 @@ ResultSet resultSet = null;
    			<div class="topnav" id="myTopnav">
 			  <a href="CustomerResHome.jsp" >Home</a>
 			  <a href="#">Products</a>
-			  <a href="#" class="active">Projects</a>
-			  <a href="CustomerFundingDesk.jsp">Funding HelpDesk</a>
+			  <a href="#" >Projects</a>
+			  <a href="#" class="active">Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars"></i>
 			  </a>
@@ -119,80 +119,10 @@ ResultSet resultSet = null;
  <br><br>
 
 
-<!-- <table align="center" cellpadding="5" cellspacing="5" border="1">
-<tr>
 
-</tr>
-<tr bgcolor="#A52A2A">
-<td><b>Proid</b></td>
-<td><b>Procode</b></td>
-<td><b>NAme</b></td>
-<td><b>image</b></td>
-<td><b>description</b></td>
-<td><b>budget</b></td>
-<td><b>Category</b></td>
-</tr>
- 
- 
-<%
-try{ 
-connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
-statement=connection.createStatement();
-String sql ="SELECT * FROM projects ";
 
-resultSet = statement.executeQuery(sql);
-while(resultSet.next()){
-%>
-<tr bgcolor="#DEB887">
-
-<td><%=resultSet.getInt("ProjectId") %></td>
-<td><%=resultSet.getString("ProjectCode") %></td>
-<td><%=resultSet.getString("ProjectName") %></td>
-<td><img src="<%=resultSet.getBlob("Image") %>"/></td>
-<td><%=resultSet.getString("Description") %></td>
-<td><%=resultSet.getString("Budget") %></td>
-<td><%=resultSet.getString("Category") %></td>
-</tr>
-
-<% 
-}
-
-} catch (Exception e) {
-e.printStackTrace();
-}
-%>
-</table>-->
-
-<center><h2>My projects</h2></center>
 	
 	
-<div class="card mb-3">
-<%
-try{ 
-connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
-statement=connection.createStatement();
-String sql ="SELECT * FROM projects where UserEmail like 'surekha@GB.com' ";
-
-resultSet = statement.executeQuery(sql);
-while(resultSet.next()){
-%>
-  <img class="card-img-top" src="<%=resultSet.getBlob("Image") %>" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title"><%=resultSet.getString("ProjectName") %></h5>
-    <h6><%=resultSet.getString("ProjectCode") %></h6>
-    <h6><%=resultSet.getString("Budget") %></h6>
-    <p class="card-text"><%=resultSet.getString("Description") %></p>
-    <p class="card-text"><small class="text-muted"><%=resultSet.getString("Category") %></small></p>
-  </div>
-  
-  <% 
-  }
-
-  } catch (Exception e) {
-  e.printStackTrace();
-  }
-  %> 
-</div>
 
 
 <!-- Footer -->

@@ -38,7 +38,7 @@
 			  <input type="hidden" name="UserEmail" value="surekha@GB.com">
 			  
 			  
-			  <a href="#">Funding HelpDesk</a>
+			  <a href="CustomerFundingDesk.jsp">Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars"></i>
 			  </a>
