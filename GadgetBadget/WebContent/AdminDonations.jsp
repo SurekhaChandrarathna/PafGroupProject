@@ -119,8 +119,7 @@ e.printStackTrace();
 </div>
 <br><br><br><br>
 
-
-<!-- <table class="table" style="width:850px">
+<table class="table" style="width:850px">
   <thead class="thead-dark">
     <tr>
       <th scope="col">id</th>
@@ -157,18 +156,19 @@ while(resultSet.next()){
 e.printStackTrace();
 }
 %>
-</table></center> -->
+</table></center>
 <br><br><br>
 
 
-<table class="table" style="width:850px">
+<!--<table class="table" style="width:850px">
   <thead class="thead-dark">
     <tr>
       <th scope="col">id</th>
       <th scope="col">Name of doner</th>
       <th scope="col">Email</th>
       <th scope="col">Donated Amount</th>
-      <th scope="col"></th>
+      <th scope="col">Card Number</th>
+      <th scope="col">Card Number</th>
     </tr>
     
     <c:forEach var = "don" items = "${getDonationList}">
@@ -176,7 +176,8 @@ e.printStackTrace();
 		<c:set var= "name" value = "${don.name}"/>
 		<c:set var= "email" value = "${don.email }"/>
 		<c:set var= "amount" value = "${don.amount }"/>
-					
+		<c:set var= "cardNumber" value = "${don.cardNumber }"/>
+		<c:set var= "CVC" value = "${don.CVC }"/>			
 
   </thead>
   <tbody>
@@ -185,6 +186,8 @@ e.printStackTrace();
 	<td >${don.name}</td>
 	<td>${don.email }</td>
 	<td>${don.amount }</td>
+	<td>${don.cardNumber }</td>
+	<td>${don.CVC }</td>
 	<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">Transfer for funds</button></td>
     </tr>
   </tbody>
@@ -193,7 +196,7 @@ e.printStackTrace();
     
     </c:forEach>
 
-</table>
+</table>-->
 
 
 
