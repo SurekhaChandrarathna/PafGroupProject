@@ -106,7 +106,7 @@ while(resultSet.next()){
  %> 
  <div class="card" style="width: 18rem;">
  <h4 style="text-align:center">Total Donations</h4>
-  <h1 style="text-align:center">RS: <%=CountRn %></h1>
+  <h1 style="text-align:center">RS: <%=CountRn %> .00</h1>
 </div>
  
  <% 
@@ -118,13 +118,16 @@ e.printStackTrace();
 %>
 </div>
 <br><br><br><br>
-<table class="table" style="width:850px">
+
+
+<!-- <table class="table" style="width:850px">
   <thead class="thead-dark">
     <tr>
       <th scope="col">id</th>
       <th scope="col">Name of doner</th>
       <th scope="col">Email</th>
       <th scope="col">Donated Amount</th>
+      <th scope="col"></th>
     </tr>
     
 <%
@@ -140,9 +143,10 @@ while(resultSet.next()){
   <tbody>
     <tr>
     <td><%=resultSet.getString("donationID") %></td>
-	<td><%=resultSet.getString("name") %></td>
+	<td ><%=resultSet.getString("name") %></td>
 	<td><%=resultSet.getString("email") %></td>
 	<td><%=resultSet.getString("amount") %></td>
+	<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">Transfer for funds</button></td>
     </tr>
   </tbody>
   
@@ -153,14 +157,43 @@ while(resultSet.next()){
 e.printStackTrace();
 }
 %>
-</table></center>
+</table></center> -->
 <br><br><br>
 
 
+<table class="table" style="width:850px">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name of doner</th>
+      <th scope="col">Email</th>
+      <th scope="col">Donated Amount</th>
+      <th scope="col"></th>
+    </tr>
+    
+    <c:forEach var = "don" items = "${getDonationList}">
+    	<c:set var= "donationID" value = "${don.donationID}"/>
+		<c:set var= "name" value = "${don.name}"/>
+		<c:set var= "email" value = "${don.email }"/>
+		<c:set var= "amount" value = "${don.amount }"/>
+					
 
+  </thead>
+  <tbody>
+    <tr>
+    <td>${don.donationID}</td>
+	<td >${don.name}</td>
+	<td>${don.email }</td>
+	<td>${don.amount }</td>
+	<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">Transfer for funds</button></td>
+    </tr>
+  </tbody>
+  
+    
+    
+    </c:forEach>
 
-
-
+</table>
 
 
 

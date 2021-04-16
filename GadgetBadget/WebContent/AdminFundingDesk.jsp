@@ -35,7 +35,7 @@
    			<div class="topnav" id="myTopnav">
 			  <a href="AdminHome.jsp">Home</a>
 			  <a href="#">Products</a>
-			  <!--  <a href="#">Projects</a>-->
+			  <a href="AdminDonations.jsp">Donations</a>
 			  <a href="#" class="active">Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars"></i>
