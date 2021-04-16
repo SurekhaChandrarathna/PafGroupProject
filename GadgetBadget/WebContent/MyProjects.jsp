@@ -114,57 +114,26 @@ ResultSet resultSet = null;
   
   
   <center><h3> Welcome to GadgetBadget </h3></center>
- <br><br>
-
-
-<!-- <table align="center" cellpadding="5" cellspacing="5" border="1">
-<tr>
-
-</tr>
-<tr bgcolor="#A52A2A">
-<td><b>Proid</b></td>
-<td><b>Procode</b></td>
-<td><b>NAme</b></td>
-<td><b>image</b></td>
-<td><b>description</b></td>
-<td><b>budget</b></td>
-<td><b>Category</b></td>
-</tr>
- 
- 
-<%
-try{ 
-connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
-statement=connection.createStatement();
-String sql ="SELECT * FROM projects ";
-
-resultSet = statement.executeQuery(sql);
-while(resultSet.next()){
-%>
-<tr bgcolor="#DEB887">
-
-<td><%=resultSet.getInt("ProjectId") %></td>
-<td><%=resultSet.getString("ProjectCode") %></td>
-<td><%=resultSet.getString("ProjectName") %></td>
-<td><img src="<%=resultSet.getBlob("Image") %>"/></td>
-<td><%=resultSet.getString("Description") %></td>
-<td><%=resultSet.getString("Budget") %></td>
-<td><%=resultSet.getString("Category") %></td>
-</tr>
-
-<% 
-}
-
-} catch (Exception e) {
-e.printStackTrace();
-}
-%>
-</table>-->
-
-<center><h2>My projects</h2></center>
+ <br>
+<center><h5>projects you have submitted will be appeared here</h5>
 	
-	
-<div class="card mb-3">
+<br>
+
+<table class="table" >
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Project Name</th>
+      <th scope="col">Project Code</th>
+      <th scope="col">Description</th>
+      <th scope="col">Image</th>
+      <th scope="col">Budget</th>
+      <th scope="col">Category</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    
 <%
 try{ 
 connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
@@ -174,24 +143,32 @@ String sql ="SELECT * FROM projects where UserEmail like 'surekha@GB.com' ";
 resultSet = statement.executeQuery(sql);
 while(resultSet.next()){
 %>
-  <img class="card-img-top" src="<%=resultSet.getBlob("Image") %>" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title"><%=resultSet.getString("ProjectName") %></h5>
-    <h6><%=resultSet.getString("ProjectCode") %></h6>
-    <h6><%=resultSet.getString("Budget") %></h6>
-    <p class="card-text"><%=resultSet.getString("Description") %></p>
-    <p class="card-text"><small class="text-muted"><%=resultSet.getString("Category") %></small></p>
-  </div>
+  </thead>
+  <tbody>
+    <tr>
+    <td><%=resultSet.getString("ProjectId") %></td>
+	<td><%=resultSet.getString("ProjectName") %></td>
+	<td><%=resultSet.getString("ProjectCode") %></td>
+	<td><%=resultSet.getString("Description") %></td>
+	<td><img src="<%=resultSet.getBlob("Image") %>" alt="image"></td>
+	<td><%=resultSet.getString("Budget") %></td>
+	<td><%=resultSet.getString("Category") %></td>
+	
+	<td><button type="button" class="btn btn-success">Request for a fund</button></td>
+	<td><button type="button" class="btn btn-primary">Update</button></td>
+	<td><button type="button" class="btn btn-danger">Delete</button></td>
+    </tr>
+  </tbody>
   
-  <% 
-  }
+<% 
+}
 
-  } catch (Exception e) {
-  e.printStackTrace();
-  }
-  %> 
-</div><br><br>
-
+} catch (Exception e) {
+e.printStackTrace();
+}
+%>
+</table><br><br>
+</center>
 
 <!-- Footer -->
 <footer class="page-footer font-small color-dark" style="background-color:#1f3a93">

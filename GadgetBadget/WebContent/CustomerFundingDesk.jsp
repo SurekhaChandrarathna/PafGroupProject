@@ -10,6 +10,8 @@
 <%@page import="java.sql.Connection"%>
 
 
+
+
 <%
 String id = request.getParameter("userId");
 String driverName = "com.mysql.jdbc.Driver";
@@ -64,7 +66,7 @@ ResultSet resultSet = null;
    			<div class="topnav" id="myTopnav">
 			  <a href="CustomerResHome.jsp" >Home</a>
 			  <a href="#">Products</a>
-			  <a href="#" >Projects</a>
+			  <a href="MyProjects.jsp" >My Projects</a>
 			  <a href="#" class="active">Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars"></i>
@@ -181,7 +183,7 @@ ResultSet resultSet = null;
 
 
 <center><h5>--------------Current Projects--------------</h5>
-<div class="card mb-3" style="width:850px">
+<div class="card mb-3" style="width:900px">
 <%
 try{ 
 connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
@@ -194,12 +196,14 @@ while(resultSet.next()){
   <img class="card-img-top" src="<%=resultSet.getBlob("Image") %>" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">Project Name : <%=resultSet.getString("ProjectName") %></h5>
-    <h6> Project Code: <%=resultSet.getString("ProjectCode") %></h6>
-    <h6><%=resultSet.getString("Budget") %></h6>
-    <p class="card-text">About Project:  <%=resultSet.getString("Description") %></p>
-    <p class="card-text"><small class="text-muted"> Category: <%=resultSet.getString("Category") %></small></p><br><br>
-    <p>*****************************************************************************************************</p>
-    <p>*****************************************************************************************************</p>
+    <h6> Project Code : <%=resultSet.getString("ProjectCode") %></h6>
+    <h6>Budget : <%=resultSet.getString("Budget") %></h6>
+    <p class="card-text">About Project :  <%=resultSet.getString("Description") %></p>
+    <p class="card-text"><small class="text-muted"> Category : <%=resultSet.getString("Category") %></small></p>
+    <p class="card-text"><small class="text-muted"> Reseacher Email : <%=resultSet.getString("UserEmail") %></small></p>
+    <br><br>
+    <p>*******************************************************************************************************************************</p>
+    <p>*******************************************************************************************************************************</p>
   </div>
   
   <% 

@@ -34,7 +34,7 @@
 			  <a href="#">Products</a>
 			  
 			  
-			  <a href="MyProjects.jsp">Projects</a>
+			  <a href="MyProjects.jsp">My Projects</a>
 			  <input type="hidden" name="UserEmail" value="surekha@GB.com">
 			  
 			  
