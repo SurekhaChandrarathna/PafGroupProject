@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-
-	<link rel="stylesheet" href="Home.css">
+<link rel="stylesheet" href="Home.css">
 	<!-- bootstrap -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 		
@@ -30,11 +30,9 @@
    			</a>
    			<br>
    			<div class="topnav" id="myTopnav">
-			  <a href="#" class="active">Home</a>
+			  <a href="#" >Home</a>
 			  <a href="#">Products</a>
-			  
-			  <a href="AdminDonations.jsp">Donations</a>
-			  <!--  <a href="#">Projects</a>-->
+			  <a href="AdminDonations.jsp" class="active">Donations</a>
 			  <a href="AdminFundingDesk.jsp">Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars"></i>
@@ -60,14 +58,102 @@
   <br><br><br>
   
 
-<br><br>
-<br><br>
 <!-- ============================================================================================================= -->
 
+<center><table class="table" style="width:850px">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name of doner</th>
+      <th scope="col">Email</th>
+      <th scope="col">Donated Amount</th>
+      <th scope="col"></th>
+      
+    </tr>
+    
+    <c:forEach var = "don" items = "${getDonationList}">
+    	<c:set var= "donationID" value = "${don.donationID}"/>
+		<c:set var= "name" value = "${don.name}"/>
+		<c:set var= "email" value = "${don.email }"/>
+		<c:set var= "amount" value = "${don.amount }"/>
+		<c:set var= "cardNumber" value = "${don.cardNumber }"/>
+		<c:set var= "CVC" value = "${don.CVC }"/>		
+		
+		
+		<c:url value = "TransferDonation.jsp" var = "TransferDonation">
+			<c:param name="donationID" value="${donationID}"/>
+			<c:param name="name" value="${name}"/>
+			<c:param name="email" value="${email}"/>
+			<c:param name="amount" value="${amount}"/>
+			<c:param name="cardNumber" value="${cardNumber}"/>
+			<c:param name="CVC" value="${CVC}"/>
+		</c:url>
+			
+
+  </thead>
+  <tbody>
+    <tr>
+    <td>${don.donationID}</td>
+	<td >${don.name}</td>
+	<td>${don.email }</td>
+	<td>${don.amount }</td>
+	<td><a class="btn btn-success btn-medium"  href="${TransferDonation}" role ="button">Transfer for funds</a></td>
+    </tr>
+  </tbody>
+  
+    
+    
+    </c:forEach>
+
+</table></center>
 
 
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Use for funding??</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="#" method="post">
+		  <div class="form-group row">
+		    <label  class="col-sm-2 col-form-label">Donation Id :</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control"  value="" name="name" readonly>
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label for="inputEmail3" class="col-sm-2 col-form-label">Name of doner :</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" name="email" value="" readonly>
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label class="col-sm-2 col-form-label">Email :</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control"  name="amount" value="" readonly>
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label  class="col-sm-2 col-form-label">Amount :</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control"   name="cardNumber" value="" readonly>
+		    </div>
+		  </div>
+		  
+		  <input type="submit" name="submit" value="Transfer for funding"  class="btn btn-primary">
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
 
-
+</div>
 
 
 
@@ -208,6 +294,7 @@ function myFunction() {
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!-- bootstrap -->
+
 
 </body>
 </html>

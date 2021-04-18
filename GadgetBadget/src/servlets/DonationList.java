@@ -34,7 +34,7 @@ public class DonationList extends HttpServlet {
 			
 		}
 		
-		RequestDispatcher dis = request.getRequestDispatcher("AdminDonations.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("DonationsList.jsp");
 		dis.forward(request, response);
 		
 	}

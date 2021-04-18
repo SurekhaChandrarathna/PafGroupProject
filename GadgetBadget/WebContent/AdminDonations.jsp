@@ -8,7 +8,8 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-
+<%@page import="it19132938.Donations"%>
+<%@page import="it19132938.DbUtill"%>
 
 <%
 String id = request.getParameter("userId");
@@ -18,6 +19,7 @@ String dbName = "gadgetbudget";
 String userId = "root";
 String password = "";
 
+String donationID=request.getParameter("donationID");
 
 try {
 Class.forName(driverName);
@@ -59,7 +61,7 @@ ResultSet resultSet = null;
    			</a>
    			<br>
    			<div class="topnav" id="myTopnav">
-			  <a href="#" >Home</a>
+			  <a href="AdminHome.jsp" >Home</a>
 			  <a href="#">Products</a>
 			  <a href="AdminDonations.jsp" class="active">Donations</a>
 			  <a href="AdminFundingDesk.jsp">Funding HelpDesk</a>
@@ -117,7 +119,8 @@ e.printStackTrace();
 }
 %>
 </div>
-<br><br><br><br>
+<br><br>
+
 
 <table class="table" style="width:850px">
   <thead class="thead-dark">
@@ -126,7 +129,6 @@ e.printStackTrace();
       <th scope="col">Name of doner</th>
       <th scope="col">Email</th>
       <th scope="col">Donated Amount</th>
-      <th scope="col"></th>
     </tr>
     
 <%
@@ -145,7 +147,6 @@ while(resultSet.next()){
 	<td ><%=resultSet.getString("name") %></td>
 	<td><%=resultSet.getString("email") %></td>
 	<td><%=resultSet.getString("amount") %></td>
-	<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">Transfer for funds</button></td>
     </tr>
   </tbody>
   
@@ -157,48 +158,11 @@ e.printStackTrace();
 }
 %>
 </table></center>
-<br><br><br>
+<br><br>
 
-
-<!--<table class="table" style="width:850px">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">id</th>
-      <th scope="col">Name of doner</th>
-      <th scope="col">Email</th>
-      <th scope="col">Donated Amount</th>
-      <th scope="col">Card Number</th>
-      <th scope="col">Card Number</th>
-    </tr>
-    
-    <c:forEach var = "don" items = "${getDonationList}">
-    	<c:set var= "donationID" value = "${don.donationID}"/>
-		<c:set var= "name" value = "${don.name}"/>
-		<c:set var= "email" value = "${don.email }"/>
-		<c:set var= "amount" value = "${don.amount }"/>
-		<c:set var= "cardNumber" value = "${don.cardNumber }"/>
-		<c:set var= "CVC" value = "${don.CVC }"/>			
-
-  </thead>
-  <tbody>
-    <tr>
-    <td>${don.donationID}</td>
-	<td >${don.name}</td>
-	<td>${don.email }</td>
-	<td>${don.amount }</td>
-	<td>${don.cardNumber }</td>
-	<td>${don.CVC }</td>
-	<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">Transfer for funds</button></td>
-    </tr>
-  </tbody>
-  
-    
-    
-    </c:forEach>
-
-</table>-->
-
-
+<center><form action="DonationList" method="post">
+<button type="submit" class="btn btn-success btn-lg btn-block" style="width:800px">Transfer donations for funding</button>
+</form></center><br><br>
 
 
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,20 +59,65 @@
 	<br>
   <img class="card-img-top" src="images/adminpage.jpg" alt="Card image cap"  height="500px">
   <br><br><br>
-  
 
-<br><br>
-<br><br>
 <!-- ============================================================================================================= -->
 
+<%
+	String donationID = request.getParameter("donationID");
+	String name=request.getParameter("name");
+	String email=request.getParameter("email") ;
+	String amount=request.getParameter("amount") ;
+%>
 
 
 
+<div >
+  <div class="modal-dialog modal-dialog-centered" role="document" style="box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="exampleModalLongTitle"  style="color:red">Are you sure you want to transfer donation for funding??</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="#" method="post">
+		  <div class="form-group row">
+		    <label  class="col-sm-2 col-form-label">Donation Id :</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" name="donationID" value="<%= donationID %>" readonly>
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label for="inputEmail3" class="col-sm-2 col-form-label">Name of doner :</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" name="name" value="<%= name %>" readonly>
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label class="col-sm-2 col-form-label">Email :</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control"  name="email" value="<%= email %>" readonly>
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label  class="col-sm-2 col-form-label">Amount :</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control"   name="amount" value="<%= amount %>" readonly>
+		    </div>
+		  </div>
+		  
+		  <input type="submit" name="submit" value="Yes"  class="btn btn-success">
+		</form>
+      </div>
+      <div class="modal-footer">
+        <a type="button" class="btn btn-danger" data-dismiss="modal" href="AdminDonations.jsp">Cancel</a>
+      </div>
+    </div>
+  </div> 
+</div>
 
-
-
-
-
+<br><br><br>
 
 
 

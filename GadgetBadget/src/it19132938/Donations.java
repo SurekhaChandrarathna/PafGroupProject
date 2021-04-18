@@ -9,6 +9,10 @@ public class Donations {
 	private String cardNumber;
 	private String CVC;
 	
+	public Donations() {
+		
+	}
+	
 	public Donations(int donationID, String name, String email, String amount, String cardNumber, String cVC) {
 		super();
 		this.donationID = donationID;

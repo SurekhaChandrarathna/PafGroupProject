@@ -58,7 +58,7 @@ public class DbUtill {
 			
 			con = DBConnection.getConnection();
 			stat = con.createStatement();
-			String sql = "select * from teacher_subject  ";
+			String sql = "select * from donations ";
 			result = stat.executeQuery(sql);
 			
 			while(result.next())
