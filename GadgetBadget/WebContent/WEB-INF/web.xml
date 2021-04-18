@@ -20,6 +20,7 @@
   	<url-pattern>/DonationsServlet</url-pattern>
   </servlet-mapping>
   
+  
   <servlet>
   	<servlet-name>DonationList</servlet-name>
   	<servlet-class>servletsIT19132938.DonationList</servlet-class>
@@ -28,6 +29,17 @@
   	<servlet-name>DonationList</servlet-name>
   	<url-pattern>/DonationList</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>TransferDonations</servlet-name>
+  	<servlet-class>servletsIT19132938.TransferDonations</servlet-class>
+  </servlet>
+  <servlet-mapping> 
+  	<servlet-name>TransferDonations</servlet-name>
+  	<url-pattern>/TransferDonations</url-pattern>
+  </servlet-mapping>
+  
   
 </web-app>
 </element>

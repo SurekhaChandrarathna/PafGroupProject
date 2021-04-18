@@ -108,58 +108,6 @@
 </table></center>
 
 
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Use for funding??</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="#" method="post">
-		  <div class="form-group row">
-		    <label  class="col-sm-2 col-form-label">Donation Id :</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  value="" name="name" readonly>
-		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label for="inputEmail3" class="col-sm-2 col-form-label">Name of doner :</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control" name="email" value="" readonly>
-		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label class="col-sm-2 col-form-label">Email :</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"  name="amount" value="" readonly>
-		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label  class="col-sm-2 col-form-label">Amount :</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control"   name="cardNumber" value="" readonly>
-		    </div>
-		  </div>
-		  
-		  <input type="submit" name="submit" value="Transfer for funding"  class="btn btn-primary">
-		</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
-
-
-
 
 
 

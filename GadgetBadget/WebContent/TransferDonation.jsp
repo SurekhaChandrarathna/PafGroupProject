@@ -81,7 +81,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="#" method="post">
+        <form action="TransferDonations" method="post">
 		  <div class="form-group row">
 		    <label  class="col-sm-2 col-form-label">Donation Id :</label>
 		    <div class="col-sm-10">

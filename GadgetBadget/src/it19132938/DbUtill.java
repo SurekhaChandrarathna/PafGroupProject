@@ -48,7 +48,8 @@ public class DbUtill {
 		
 		return isSuccess;
 	}
-	
+
+	/*----------------------------------------------------------------------------------------------------*/
 	public static List<Donations> getDonationList(){
 		
 		
@@ -87,6 +88,38 @@ public class DbUtill {
 		
 		
 	}
+	
+	/*----------------------------------------------------------------------------------------------------*/
+	
+	public static boolean TransferDonations(String donationID)
+	{
+		int convertedDonationID = Integer.parseInt(donationID);
+		boolean isSuccess=false;
+		
+		try {
+			
+			con = DBConnection.getConnection();
+			stat = con.createStatement();
+			String sql = "delete  from donations where donationID='"+convertedDonationID+"' ";
+			int r = stat.executeUpdate(sql);
+			
+			if(r>0)
+			{
+				isSuccess =true;
+			}else
+			{
+				isSuccess=false;
+			}
+			
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return isSuccess;
+	}
+	
+	
 	
 	
 
