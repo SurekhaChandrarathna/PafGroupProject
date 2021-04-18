@@ -31,10 +31,10 @@
    			</a>
    			<br>
    			<div class="topnav" id="myTopnav">
-			  <a href="#" class="active">Home</a>
+			  <a href="AdminHome.jsp" >Home</a>
 			  <a href="#">Products</a>
 			  
-			  <a href="AdminDonations.jsp">Donations</a>
+			  <a href="AdminDonations.jsp" class="active">Donations</a>
 			  <!--  <a href="#">Projects</a>-->
 			  <a href="AdminFundingDesk.jsp">Funding HelpDesk</a>
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -57,7 +57,7 @@
 	
 <!-- navigation bar -->
 	<br>
-  <img class="card-img-top" src="images/adminpage.jpg" alt="Card image cap"  height="500px">
+ 
   <br><br><br>
 
 <!-- ============================================================================================================= -->
@@ -71,7 +71,7 @@
 
 
 
-<div >
+<div>
   <div class="modal-dialog modal-dialog-centered" role="document" style="box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
     <div class="modal-content">
       <div class="modal-header">

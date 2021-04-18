@@ -119,7 +119,46 @@ public class DbUtill {
 		return isSuccess;
 	}
 	
-	
+	/*----------------------------------------------------------------------------------------------------
+	public static List<Donations> getSelectedDonationList(String DonationID){
+		
+		
+		ArrayList<Donations> donations = new ArrayList<>();
+		int convertedDonationID = Integer.parseInt(DonationID);
+		
+		try {
+			
+			con = DBConnection.getConnection();
+			stat = con.createStatement();
+			String sql = "select * from donations where donationID='"+convertedDonationID+"' ";
+			result = stat.executeQuery(sql);
+			
+			while(result.next())
+			{
+				int donationID = result.getInt(1);
+				String name = result.getString(2);
+				String email = result.getString(3);
+				String amount = result.getString(4);
+				String cardNumber= result.getString(5);
+				String CVC= result.getString(6);
+				
+				Donations rs = new Donations( donationID,name ,email,amount,cardNumber,CVC);
+				donations.add(rs);
+			}
+			
+			
+		}
+		
+		catch(Exception e) {
+			
+			e.printStackTrace();
+		}
+		
+				
+		return donations;
+		
+		
+	}*/
 	
 	
 
